@@ -1,6 +1,6 @@
 # EOSJointInference
 
-##Data Preparation
+## Data Preparation
 
 The first step is to create GMMs for all the events which need this kind of likelihood evaluation. For example, we make GMM firs fot GW170817 and GW190425, which can be seen in the samples directory. I have some of these fits pre-saved for these events. I created these by running the `fit_GMM.py` code, and pointed to the bilby result files for the PE of these two events. Note, I think there was a bug in an older version of bilby that prevented the uniform source frame distance prior from being read in proeprly, so I have a line commented out which should fix this if necessary. This will save the GMM objects and some summary statistics.
 
@@ -24,7 +24,7 @@ At the end of this process, we will have GMM fits for the GW likelihoods (effect
 
 The radio pulsar data come from the data release of Will and Katerina's paper. the file `pulsars_noNICER.h5` includes all of the pulsars in the original Alsing+/Farr+ dataset except for the pulsars with NICER observations, to avoid double counting.
 
-##Infering the Mass Distribution under a Fiducial EOS Model
+## Infering the Mass Distribution under a Fiducial EOS Model
 
 We first infer the mass distribution under a universal relation EoS model in order to capture the basic correlations between the mass-radius measurements in the population inference, as described in the paper. This is done with the `run_inference.py` script, which should be run for the GW events. The parser includes the necessary options and descriptions of these options. This step gives our proposal mass distribution for each dataset (almost correct, but does not include information from the GP EoSes) Some important ones to consider:
 
@@ -41,7 +41,7 @@ A similar step is done for the EM data, with `run_inference-EM.py`, which runs m
 
 The end of this stage is a posterior for $\eta_{\textrm{GW}}$ and $\eta_{\textrm{EM}}$ which we will use as a proposal in later steps.
 
-##Drawing Proposal Single-Event Samples
+## Drawing Proposal Single-Event Samples
 
 Since the EoS gives different mass-radius or mass-lambda combinations, we need to draw proposal single-event samples for which we will evaluate the per-event likelihoods. We don't want to evaluate the single-event likelihoods and the $R(m)$ and $\Lambda(m)$ relationships for each mass distribution and each EoS. So the strategy is to draw a bunch of proposal masses and pre-compute the $R(m)$ and $\Lamdba(m)$ values for each EoS for the proposal masses.
 
@@ -51,7 +51,7 @@ The script `draw_pop_samples.py` (which I now see is poorly named) is used to dr
 
 Again, the output of the `draw_pop_samples` step is some set of (mass, lambda or compactness) coordinates targeted around the support of the observations. To be specific, "targeted" means drawn from a Gaussian around the estimated masses for each observation. For GWs, we draw from a Gaussian around the source frame chirp mass chirp mass and a power law mamss ratio. For NICER, we draw from a Gaussian around the estimated mass. The widths of the Gaussians are estimated from the samples themselves, but are scaled by some factor `scale-chirp` to make the proposal support broader. The `pdraws` are saved so they can be divided out later.
 
-##Calculating Single-Event Likelihoods
+## Calculating Single-Event Likelihoods
 
 Now that we have samples of mass and lambda or compactness for each GW or NICER observation, we will calculate the likelihood of the data given those points. To do this, we use the GMM fits from the first step to estimate $\mathcal{L}(d_i|m_1, m_2,\Lambda_1, \Lambda_2)$ for the $i$th GW obsveration and $\mathcal{L}(d_i|m, C)$ for the $i$th NICER observation. You could also call this $\mathcal{L}(d_I|m,\epsilon)$ since the EoS $\epsilon$ specifies the other observable, given $m$. This uses the method described in Golomb an Talbot 2021 to evaluate the likelihoods, effectively dividing out the priors discussed in the "Data" step.
 
