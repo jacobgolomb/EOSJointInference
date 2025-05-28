@@ -1,0 +1,2 @@
+python ../utils/draw_pop_samples.py --gw-gmm-files GW_fits.txt --eos /home/isaac.legred/EoSPopulation/Reweighting/EoS/gp_mrgagn.h5
+python ../utils/draw_pop_samples-NICER.py --gmm-files NICER_fits.txt --eos /home/isaac.legred/EoSPopulation/Reweighting/EoS/gp_mrgagn.h5

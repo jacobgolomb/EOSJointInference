@@ -1,0 +1,3 @@
+../data/NICER_data/J0030_GMM.pkl
+../data/NICER_data/J0740_radiomass_GMM.pkl
+../data/NICER_data/J0437_radiomass_GMM.pkl

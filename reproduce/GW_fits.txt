@@ -1,0 +1,2 @@
+../data/GW_data/GW190425/LVK_lowspin/GW190425.pkl
+../data/GW_data/GW170817/lowspin_fixedpos/GW170817.pkl

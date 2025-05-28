@@ -1,0 +1,1 @@
+python ../utils/plot.py combined_result.pkl

@@ -1,0 +1,1 @@
+python ../utils/run_inference.py --gmm-file-list GW_fits.txt --backend jax --outdir outdir_GW --prior ../priors/GWPrior.prior --selection-samples newprior_lvk_bns_injection_o1o2o3.csv --eos ur

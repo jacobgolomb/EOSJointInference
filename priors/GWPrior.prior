@@ -1,0 +1,5 @@
+mpop = bilby.core.prior.Uniform(minimum=1.6, maximum=2.5, name='mpop', unit=None, boundary=None)
+mmin=1
+alpha = Uniform(minimum=-5, maximum =5)
+m = bilby.core.prior.Uniform(name='m', minimum = -2.5, maximum=0.0)
+b = bilby.core.prior.Uniform(name='b', minimum = 2, maximum= 4)

@@ -1,0 +1,1 @@
+python ../utils/calculate_likelihoods-NICER.py --gmm-files NICER_fits.txt --samples-file mass_compactness.h5 -o ./likelihoods_NICER

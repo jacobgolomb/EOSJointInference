@@ -1,0 +1,1 @@
+python ../utils/combine_weights.py --psr-weights PSR_conditioned_weights.pkl --nicer-weights NICER_conditioned_weights.pkl --gw-weights GW_conditioned_weights.pkl --label combined_result

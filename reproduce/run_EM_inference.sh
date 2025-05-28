@@ -1,0 +1,1 @@
+python ../utils/run_inference-EM.py --pulsar-path ../data/Alsing_pulsars/pulsars_noNICER.h5 --nicer-gmms-file-list NICER_fits.txt 
