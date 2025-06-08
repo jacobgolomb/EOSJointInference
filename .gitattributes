@@ -10,6 +10,7 @@ gmm_likelihoods/**.pkl filter=lfs diff=lfs merge=lfs -text
 gmm_likelihoods/**.png filter=lfs diff=lfs merge=lfs -text
 gmm_likelihoods/**.ipynb filter=lfs diff=lfs merge=lfs -text
 gmm_likelihoods/**.json filter=lfs diff=lfs merge=lfs -text
+gmm_likelihoods/**/*.json filter=lfs diff=lfs merge=lfs -text
 gmm_likelihoods filter=lfs diff=lfs merge=lfs -text
 *.json filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
