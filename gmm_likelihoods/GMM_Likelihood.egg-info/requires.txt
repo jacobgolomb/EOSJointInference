@@ -1,0 +1,8 @@
+astropy
+bilby
+corner
+dill
+matplotlib
+numpy
+pandas
+scikit-learn
